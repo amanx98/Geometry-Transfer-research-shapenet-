@@ -1,0 +1,193 @@
+=== run s0_rotz | device cuda | AMD Instinct MI300X VF | torch 2.12.0+rocm7.14.0 | hip 7.14.60850
+shapes: 52472 | SSL-train 49844 | held-out 2628 | points/shape 1024
+probe classes: table, chair, airplane, car, sofa, rifle, lamp, watercraft, bench, loudspeaker, cabinet, display, telephone | probe-train 3900 | held-out val 1989
+params: encoder 1.95M | decoder 2.89M | proj 0.59M | grouping knn | hidden patch 256 pts
+objective: 1.0*chamfer(hidden patch) + 1.0*InfoNCE(tau=0.1) | rotation z | corruption aug: none | batch 128 (InfoNCE at random-init ~ ln(128)=4.85)
+[random-init probe, mean-class-acc %]  clean: 87.4  yaw: 37.3  occ: 66.8  noise: 88.0  clutter:  7.2  scan:  6.5
+ep   1/150 | rec 0.0772 | con 0.523 | cos 0.81 | lr 8.2e-05 | 81s | peak 46.7GB
+ep   2/150 | rec 0.0528 | con 0.072 | cos 0.81 | lr 2.0e-04 | 79s | peak 46.7GB
+ep   3/150 | rec 0.0442 | con 0.043 | cos 0.82 | lr 3.7e-04 | 79s | peak 46.7GB
+ep   4/150 | rec 0.0384 | con 0.034 | cos 0.83 | lr 5.7e-04 | 79s | peak 46.7GB
+ep   5/150 | rec 0.0298 | con 0.029 | cos 0.83 | lr 7.6e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 84.5  yaw: 76.5  occ: 42.8  noise: 81.3  clutter:  9.8  scan:  8.1 | select(mean) 46.3 (random-init 47.0)  <- best
+ep   6/150 | rec 0.0229 | con 0.026 | cos 0.83 | lr 9.1e-04 | 79s | peak 46.7GB
+ep   7/150 | rec 0.0191 | con 0.023 | cos 0.84 | lr 9.9e-04 | 79s | peak 46.7GB
+ep   8/150 | rec 0.0161 | con 0.021 | cos 0.84 | lr 1.0e-03 | 79s | peak 46.7GB
+ep   9/150 | rec 0.0147 | con 0.020 | cos 0.83 | lr 1.0e-03 | 79s | peak 46.7GB
+ep  10/150 | rec 0.0129 | con 0.019 | cos 0.84 | lr 1.0e-03 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.9  yaw: 71.1  occ: 53.7  noise: 83.5  clutter: 15.8  scan: 10.3 | select(mean) 49.1 (random-init 47.0)  <- best
+ep  11/150 | rec 0.0125 | con 0.018 | cos 0.84 | lr 1.0e-03 | 79s | peak 46.7GB
+ep  12/150 | rec 0.0119 | con 0.017 | cos 0.84 | lr 1.0e-03 | 79s | peak 46.7GB
+ep  13/150 | rec 0.0118 | con 0.017 | cos 0.84 | lr 1.0e-03 | 79s | peak 46.7GB
+ep  14/150 | rec 0.0111 | con 0.017 | cos 0.83 | lr 9.9e-04 | 79s | peak 46.7GB
+ep  15/150 | rec 0.0111 | con 0.016 | cos 0.84 | lr 9.9e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.9  yaw: 71.4  occ: 56.3  noise: 83.5  clutter: 18.5  scan: 11.5 | select(mean) 49.7 (random-init 47.0)  <- best
+ep  16/150 | rec 0.0107 | con 0.015 | cos 0.84 | lr 9.9e-04 | 79s | peak 46.7GB
+ep  17/150 | rec 0.0101 | con 0.015 | cos 0.84 | lr 9.9e-04 | 79s | peak 46.7GB
+ep  18/150 | rec 0.0103 | con 0.015 | cos 0.84 | lr 9.9e-04 | 79s | peak 46.7GB
+ep  19/150 | rec 0.0100 | con 0.015 | cos 0.84 | lr 9.8e-04 | 79s | peak 46.7GB
+ep  20/150 | rec 0.0100 | con 0.015 | cos 0.84 | lr 9.8e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.7  yaw: 71.3  occ: 55.1  noise: 83.8  clutter: 21.3  scan: 11.4 | select(mean) 49.5 (random-init 47.0)
+ep  21/150 | rec 0.0095 | con 0.014 | cos 0.84 | lr 9.8e-04 | 79s | peak 46.7GB
+ep  22/150 | rec 0.0095 | con 0.014 | cos 0.84 | lr 9.7e-04 | 79s | peak 46.7GB
+ep  23/150 | rec 0.0093 | con 0.014 | cos 0.83 | lr 9.7e-04 | 79s | peak 46.7GB
+ep  24/150 | rec 0.0092 | con 0.014 | cos 0.83 | lr 9.7e-04 | 79s | peak 46.7GB
+ep  25/150 | rec 0.0090 | con 0.014 | cos 0.83 | lr 9.6e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 86.7  yaw: 71.3  occ: 56.4  noise: 83.5  clutter: 11.5  scan:  8.8 | select(mean) 47.7 (random-init 47.0)
+ep  26/150 | rec 0.0088 | con 0.013 | cos 0.83 | lr 9.6e-04 | 79s | peak 46.7GB
+ep  27/150 | rec 0.0087 | con 0.013 | cos 0.83 | lr 9.5e-04 | 79s | peak 46.7GB
+ep  28/150 | rec 0.0088 | con 0.013 | cos 0.82 | lr 9.5e-04 | 79s | peak 46.7GB
+ep  29/150 | rec 0.0086 | con 0.013 | cos 0.83 | lr 9.4e-04 | 79s | peak 46.7GB
+ep  30/150 | rec 0.0083 | con 0.013 | cos 0.83 | lr 9.4e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.1  yaw: 73.9  occ: 55.4  noise: 84.7  clutter: 21.3  scan: 10.6 | select(mean) 49.3 (random-init 47.0)
+ep  31/150 | rec 0.0083 | con 0.013 | cos 0.83 | lr 9.3e-04 | 79s | peak 46.7GB
+ep  32/150 | rec 0.0082 | con 0.013 | cos 0.82 | lr 9.3e-04 | 79s | peak 46.7GB
+ep  33/150 | rec 0.0081 | con 0.013 | cos 0.82 | lr 9.2e-04 | 79s | peak 46.7GB
+ep  34/150 | rec 0.0082 | con 0.012 | cos 0.82 | lr 9.2e-04 | 79s | peak 46.7GB
+ep  35/150 | rec 0.0079 | con 0.012 | cos 0.82 | lr 9.1e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.6  yaw: 73.2  occ: 54.3  noise: 83.0  clutter: 22.3  scan: 13.1 | select(mean) 50.9 (random-init 47.0)  <- best
+ep  36/150 | rec 0.0077 | con 0.012 | cos 0.82 | lr 9.0e-04 | 79s | peak 46.7GB
+ep  37/150 | rec 0.0078 | con 0.012 | cos 0.82 | lr 9.0e-04 | 79s | peak 46.7GB
+ep  38/150 | rec 0.0077 | con 0.012 | cos 0.82 | lr 8.9e-04 | 79s | peak 46.7GB
+ep  39/150 | rec 0.0076 | con 0.012 | cos 0.81 | lr 8.8e-04 | 79s | peak 46.7GB
+ep  40/150 | rec 0.0076 | con 0.012 | cos 0.82 | lr 8.8e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.1  yaw: 74.2  occ: 53.2  noise: 81.5  clutter: 14.3  scan:  8.3 | select(mean) 48.2 (random-init 47.0)
+ep  41/150 | rec 0.0075 | con 0.011 | cos 0.82 | lr 8.7e-04 | 79s | peak 46.7GB
+ep  42/150 | rec 0.0073 | con 0.011 | cos 0.81 | lr 8.6e-04 | 79s | peak 46.7GB
+ep  43/150 | rec 0.0073 | con 0.011 | cos 0.81 | lr 8.5e-04 | 79s | peak 46.7GB
+ep  44/150 | rec 0.0072 | con 0.011 | cos 0.81 | lr 8.5e-04 | 79s | peak 46.7GB
+ep  45/150 | rec 0.0072 | con 0.011 | cos 0.81 | lr 8.4e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.5  yaw: 72.8  occ: 52.8  noise: 81.2  clutter:  9.9  scan:  7.8 | select(mean) 47.6 (random-init 47.0)
+ep  46/150 | rec 0.0072 | con 0.011 | cos 0.81 | lr 8.3e-04 | 79s | peak 46.7GB
+ep  47/150 | rec 0.0071 | con 0.011 | cos 0.82 | lr 8.2e-04 | 79s | peak 46.7GB
+ep  48/150 | rec 0.0070 | con 0.011 | cos 0.82 | lr 8.1e-04 | 79s | peak 46.7GB
+ep  49/150 | rec 0.0070 | con 0.011 | cos 0.81 | lr 8.0e-04 | 79s | peak 46.7GB
+ep  50/150 | rec 0.0069 | con 0.011 | cos 0.82 | lr 8.0e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.5  yaw: 73.2  occ: 55.4  noise: 81.1  clutter: 18.3  scan: 10.4 | select(mean) 49.0 (random-init 47.0)
+ep  51/150 | rec 0.0069 | con 0.010 | cos 0.82 | lr 7.9e-04 | 79s | peak 46.7GB
+ep  52/150 | rec 0.0068 | con 0.011 | cos 0.82 | lr 7.8e-04 | 79s | peak 46.7GB
+ep  53/150 | rec 0.0068 | con 0.010 | cos 0.81 | lr 7.7e-04 | 79s | peak 46.7GB
+ep  54/150 | rec 0.0067 | con 0.010 | cos 0.81 | lr 7.6e-04 | 79s | peak 46.7GB
+ep  55/150 | rec 0.0066 | con 0.010 | cos 0.81 | lr 7.5e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.8  yaw: 75.3  occ: 53.4  noise: 76.9  clutter: 15.0  scan:  9.0 | select(mean) 48.9 (random-init 47.0)
+ep  56/150 | rec 0.0066 | con 0.010 | cos 0.81 | lr 7.4e-04 | 79s | peak 46.7GB
+ep  57/150 | rec 0.0066 | con 0.010 | cos 0.81 | lr 7.3e-04 | 79s | peak 46.7GB
+ep  58/150 | rec 0.0065 | con 0.010 | cos 0.82 | lr 7.2e-04 | 79s | peak 46.7GB
+ep  59/150 | rec 0.0065 | con 0.010 | cos 0.82 | lr 7.1e-04 | 79s | peak 46.7GB
+ep  60/150 | rec 0.0066 | con 0.010 | cos 0.81 | lr 7.0e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.1  yaw: 75.3  occ: 53.4  noise: 80.1  clutter: 14.8  scan: 10.4 | select(mean) 49.2 (random-init 47.0)
+ep  61/150 | rec 0.0064 | con 0.010 | cos 0.81 | lr 6.9e-04 | 79s | peak 46.7GB
+ep  62/150 | rec 0.0064 | con 0.010 | cos 0.81 | lr 6.8e-04 | 79s | peak 46.7GB
+ep  63/150 | rec 0.0063 | con 0.010 | cos 0.81 | lr 6.7e-04 | 79s | peak 46.7GB
+ep  64/150 | rec 0.0063 | con 0.010 | cos 0.82 | lr 6.6e-04 | 79s | peak 46.7GB
+ep  65/150 | rec 0.0063 | con 0.010 | cos 0.82 | lr 6.5e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 89.1  yaw: 76.0  occ: 56.3  noise: 79.3  clutter: 13.2  scan:  9.1 | select(mean) 49.1 (random-init 47.0)
+ep  66/150 | rec 0.0063 | con 0.010 | cos 0.81 | lr 6.4e-04 | 79s | peak 46.7GB
+ep  67/150 | rec 0.0062 | con 0.010 | cos 0.82 | lr 6.3e-04 | 79s | peak 46.7GB
+ep  68/150 | rec 0.0062 | con 0.010 | cos 0.81 | lr 6.2e-04 | 79s | peak 46.7GB
+ep  69/150 | rec 0.0061 | con 0.010 | cos 0.81 | lr 6.1e-04 | 79s | peak 46.7GB
+ep  70/150 | rec 0.0061 | con 0.010 | cos 0.81 | lr 6.0e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.5  yaw: 75.2  occ: 53.9  noise: 75.8  clutter: 12.0  scan:  8.1 | select(mean) 47.8 (random-init 47.0)
+ep  71/150 | rec 0.0061 | con 0.010 | cos 0.81 | lr 5.8e-04 | 79s | peak 46.7GB
+ep  72/150 | rec 0.0060 | con 0.009 | cos 0.81 | lr 5.7e-04 | 79s | peak 46.7GB
+ep  73/150 | rec 0.0060 | con 0.009 | cos 0.81 | lr 5.6e-04 | 79s | peak 46.7GB
+ep  74/150 | rec 0.0060 | con 0.010 | cos 0.82 | lr 5.5e-04 | 79s | peak 46.7GB
+ep  75/150 | rec 0.0060 | con 0.009 | cos 0.81 | lr 5.4e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.4  yaw: 77.2  occ: 54.3  noise: 75.9  clutter: 12.1  scan:  8.0 | select(mean) 48.2 (random-init 47.0)
+ep  76/150 | rec 0.0059 | con 0.009 | cos 0.81 | lr 5.3e-04 | 79s | peak 46.7GB
+ep  77/150 | rec 0.0059 | con 0.009 | cos 0.81 | lr 5.2e-04 | 79s | peak 46.7GB
+ep  78/150 | rec 0.0058 | con 0.009 | cos 0.81 | lr 5.1e-04 | 79s | peak 46.7GB
+ep  79/150 | rec 0.0059 | con 0.009 | cos 0.81 | lr 5.0e-04 | 79s | peak 46.7GB
+ep  80/150 | rec 0.0058 | con 0.009 | cos 0.81 | lr 4.9e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.6  yaw: 76.0  occ: 55.3  noise: 78.0  clutter: 11.7  scan:  8.0 | select(mean) 48.3 (random-init 47.0)
+ep  81/150 | rec 0.0058 | con 0.009 | cos 0.81 | lr 4.8e-04 | 79s | peak 46.7GB
+ep  82/150 | rec 0.0058 | con 0.009 | cos 0.81 | lr 4.6e-04 | 79s | peak 46.7GB
+ep  83/150 | rec 0.0057 | con 0.009 | cos 0.81 | lr 4.5e-04 | 79s | peak 46.7GB
+ep  84/150 | rec 0.0057 | con 0.009 | cos 0.81 | lr 4.4e-04 | 79s | peak 46.7GB
+ep  85/150 | rec 0.0057 | con 0.009 | cos 0.81 | lr 4.3e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 87.9  yaw: 75.7  occ: 54.1  noise: 74.7  clutter: 10.2  scan:  7.8 | select(mean) 47.8 (random-init 47.0)
+ep  86/150 | rec 0.0057 | con 0.009 | cos 0.81 | lr 4.2e-04 | 79s | peak 46.7GB
+ep  87/150 | rec 0.0056 | con 0.009 | cos 0.81 | lr 4.1e-04 | 79s | peak 46.7GB
+ep  88/150 | rec 0.0056 | con 0.009 | cos 0.81 | lr 4.0e-04 | 79s | peak 46.7GB
+ep  89/150 | rec 0.0056 | con 0.009 | cos 0.81 | lr 3.9e-04 | 79s | peak 46.7GB
+ep  90/150 | rec 0.0056 | con 0.009 | cos 0.81 | lr 3.8e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 89.2  yaw: 77.6  occ: 54.6  noise: 76.3  clutter:  8.8  scan:  7.8 | select(mean) 48.5 (random-init 47.0)
+ep  91/150 | rec 0.0055 | con 0.009 | cos 0.81 | lr 3.7e-04 | 79s | peak 46.7GB
+ep  92/150 | rec 0.0055 | con 0.009 | cos 0.82 | lr 3.6e-04 | 79s | peak 46.7GB
+ep  93/150 | rec 0.0055 | con 0.009 | cos 0.81 | lr 3.5e-04 | 79s | peak 46.7GB
+ep  94/150 | rec 0.0055 | con 0.009 | cos 0.81 | lr 3.4e-04 | 79s | peak 46.7GB
+ep  95/150 | rec 0.0055 | con 0.009 | cos 0.82 | lr 3.2e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.8  yaw: 76.2  occ: 48.8  noise: 76.4  clutter: 10.9  scan:  7.9 | select(mean) 48.4 (random-init 47.0)
+ep  96/150 | rec 0.0055 | con 0.009 | cos 0.82 | lr 3.1e-04 | 79s | peak 46.7GB
+ep  97/150 | rec 0.0054 | con 0.009 | cos 0.81 | lr 3.0e-04 | 79s | peak 46.7GB
+ep  98/150 | rec 0.0054 | con 0.009 | cos 0.81 | lr 2.9e-04 | 79s | peak 46.7GB
+ep  99/150 | rec 0.0054 | con 0.009 | cos 0.81 | lr 2.8e-04 | 79s | peak 46.7GB
+ep 100/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.7e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.9  yaw: 76.2  occ: 51.6  noise: 76.3  clutter: 11.8  scan:  8.1 | select(mean) 48.5 (random-init 47.0)
+ep 101/150 | rec 0.0054 | con 0.009 | cos 0.81 | lr 2.6e-04 | 79s | peak 46.7GB
+ep 102/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.5e-04 | 79s | peak 46.7GB
+ep 103/150 | rec 0.0054 | con 0.009 | cos 0.81 | lr 2.5e-04 | 79s | peak 46.7GB
+ep 104/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.4e-04 | 79s | peak 46.7GB
+ep 105/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.3e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 89.1  yaw: 77.6  occ: 51.9  noise: 76.5  clutter: 10.0  scan:  8.0 | select(mean) 48.6 (random-init 47.0)
+ep 106/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.2e-04 | 79s | peak 46.7GB
+ep 107/150 | rec 0.0053 | con 0.009 | cos 0.81 | lr 2.1e-04 | 79s | peak 46.7GB
+ep 108/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 2.0e-04 | 79s | peak 46.7GB
+ep 109/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.9e-04 | 79s | peak 46.7GB
+ep 110/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.8e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 89.2  yaw: 77.4  occ: 52.9  noise: 76.5  clutter: 12.3  scan:  8.0 | select(mean) 48.6 (random-init 47.0)
+ep 111/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.7e-04 | 79s | peak 46.7GB
+ep 112/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.7e-04 | 79s | peak 46.7GB
+ep 113/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.6e-04 | 79s | peak 46.7GB
+ep 114/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.5e-04 | 79s | peak 46.7GB
+ep 115/150 | rec 0.0052 | con 0.009 | cos 0.81 | lr 1.4e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 89.0  yaw: 76.6  occ: 51.2  noise: 75.7  clutter: 11.9  scan:  8.1 | select(mean) 48.6 (random-init 47.0)
+ep 116/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 1.3e-04 | 79s | peak 46.7GB
+ep 117/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 1.3e-04 | 79s | peak 46.7GB
+ep 118/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 1.2e-04 | 79s | peak 46.7GB
+ep 119/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 1.1e-04 | 79s | peak 46.7GB
+ep 120/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 1.1e-04 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.8  yaw: 77.1  occ: 54.7  noise: 76.1  clutter: 14.3  scan:  8.6 | select(mean) 48.7 (random-init 47.0)
+ep 121/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 9.9e-05 | 79s | peak 46.7GB
+ep 122/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 9.2e-05 | 79s | peak 46.7GB
+ep 123/150 | rec 0.0051 | con 0.009 | cos 0.80 | lr 8.6e-05 | 79s | peak 46.7GB
+ep 124/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 8.0e-05 | 79s | peak 46.7GB
+ep 125/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 7.4e-05 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.9  yaw: 77.9  occ: 55.4  noise: 77.0  clutter: 13.6  scan:  8.0 | select(mean) 48.4 (random-init 47.0)
+ep 126/150 | rec 0.0051 | con 0.009 | cos 0.81 | lr 6.8e-05 | 79s | peak 46.7GB
+ep 127/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 6.3e-05 | 79s | peak 46.7GB
+ep 128/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 5.8e-05 | 79s | peak 46.7GB
+ep 129/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 5.3e-05 | 79s | peak 46.7GB
+ep 130/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 4.8e-05 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.7  yaw: 77.5  occ: 54.0  noise: 78.6  clutter: 13.3  scan:  8.3 | select(mean) 48.5 (random-init 47.0)
+ep 131/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 4.3e-05 | 79s | peak 46.7GB
+ep 132/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 3.9e-05 | 79s | peak 46.7GB
+ep 133/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 3.5e-05 | 79s | peak 46.7GB
+ep 134/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 3.1e-05 | 79s | peak 46.7GB
+ep 135/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 2.7e-05 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.9  yaw: 77.3  occ: 53.8  noise: 78.8  clutter: 12.0  scan:  8.0 | select(mean) 48.4 (random-init 47.0)
+ep 136/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 2.4e-05 | 79s | peak 46.7GB
+ep 137/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 2.0e-05 | 79s | peak 46.7GB
+ep 138/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 1.7e-05 | 79s | peak 46.7GB
+ep 139/150 | rec 0.0050 | con 0.009 | cos 0.81 | lr 1.5e-05 | 79s | peak 46.7GB
+ep 140/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 1.2e-05 | 79s | peak 46.7GB
+   [probe mCA %] clean: 88.9  yaw: 77.6  occ: 54.2  noise: 78.9  clutter: 13.8  scan:  8.1 | select(mean) 48.5 (random-init 47.0)
+ep 141/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 9.8e-06 | 79s | peak 46.7GB
+ep 142/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 7.8e-06 | 80s | peak 46.7GB
+ep 143/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 5.9e-06 | 80s | peak 46.7GB
+ep 144/150 | rec 0.0049 | con 0.009 | cos 0.80 | lr 4.4e-06 | 80s | peak 46.7GB
+ep 145/150 | rec 0.0049 | con 0.009 | cos 0.81 | lr 3.0e-06 | 80s | peak 46.7GB
+   [probe mCA %] clean: 88.5  yaw: 77.6  occ: 54.3  noise: 78.7  clutter: 14.1  scan:  8.2 | select(mean) 48.4 (random-init 47.0)
+ep 146/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 1.9e-06 | 80s | peak 46.7GB
+ep 147/150 | rec 0.0049 | con 0.009 | cos 0.80 | lr 1.1e-06 | 80s | peak 46.7GB
+ep 148/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 4.9e-07 | 80s | peak 46.7GB
+ep 149/150 | rec 0.0050 | con 0.009 | cos 0.80 | lr 1.2e-07 | 80s | peak 46.7GB
+ep 150/150 | rec 0.0049 | con 0.009 | cos 0.81 | lr 4.0e-09 | 80s | peak 46.7GB
+   [probe mCA %] clean: 89.2  yaw: 77.5  occ: 53.9  noise: 78.0  clutter: 13.9  scan:  8.0 | select(mean) 48.6 (random-init 47.0)
+
+=== summary (mean class accuracy %, linear probe on held-out shapes; clean-trained head) ===
+                  clean      yaw      occ    noise  clutter     scan
+random-init        87.4     37.3     66.8     88.0      7.2      6.5
+best ep35          88.6     73.2     54.3     83.0     22.3     13.1
+final ep150        89.2     77.5     53.9     78.0     13.9      8.0
+Stage 2 should load: /root/stage1_v2/runs/s0_rotz/best.pth   (selected by probe, not by loss)
