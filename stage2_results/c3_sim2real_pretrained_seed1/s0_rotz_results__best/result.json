@@ -1,0 +1,17 @@
+{
+ "condition": "c3_sim2real_pretrained",
+ "seed": 1,
+ "pretrained": "s0_rotz_results/best.pth",
+ "checkpoint_id": "s0_rotz_results__best",
+ "finetune_encoder": true,
+ "select_metric": "mca",
+ "best_val_acc": 99.07692074775696,
+ "modelnet40_val_reused_as_eval": {
+  "oa": 99.07692074775696,
+  "mca": 98.43713715672493
+ },
+ "scanobjectnn_test": {
+  "oa": 44.95297968387604,
+  "mca": 41.27996563911438
+ }
+}

@@ -1,0 +1,17 @@
+{
+ "condition": "c1c2_scratch",
+ "seed": 2,
+ "pretrained": null,
+ "checkpoint_id": "none",
+ "finetune_encoder": true,
+ "select_metric": "mca",
+ "best_val_acc": 99.38461780548096,
+ "modelnet40_val_reused_as_eval": {
+  "oa": 99.38461780548096,
+  "mca": 98.72122779488564
+ },
+ "scanobjectnn_test": {
+  "oa": 48.7147331237793,
+  "mca": 45.99987305700779
+ }
+}

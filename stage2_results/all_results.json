@@ -1,0 +1,206 @@
+[
+ {
+  "condition": "c1_modelnet_baseline",
+  "seed": 0,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.07692074775696,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.07692074775696,
+   "mca": 98.47613051533699
+  },
+  "scanobjectnn_test": {
+   "oa": 53.10344696044922,
+   "mca": 49.80647601187229
+  }
+ },
+ {
+  "condition": "c2_sim2real_no_pretrain",
+  "seed": 0,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.07692074775696,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.07692074775696,
+   "mca": 98.47613051533699
+  },
+  "scanobjectnn_test": {
+   "oa": 53.10344696044922,
+   "mca": 49.80647601187229
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 0,
+  "pretrained": "s0_rotz_results/best.pth",
+  "checkpoint_id": "s0_rotz_results__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.38461780548096,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.38461780548096,
+   "mca": 98.72122779488564
+  },
+  "scanobjectnn_test": {
+   "oa": 49.278998374938965,
+   "mca": 44.80836149305105
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 0,
+  "pretrained": "stage1_v2/runs/corrupt_aug/best.pth",
+  "checkpoint_id": "corrupt_aug__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 98.46153855323792,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 98.46153855323792,
+   "mca": 97.09079340100288
+  },
+  "scanobjectnn_test": {
+   "oa": 49.278998374938965,
+   "mca": 43.7069246545434
+  }
+ },
+ {
+  "condition": "c1_modelnet_baseline",
+  "seed": 1,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 98.46153855323792,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 98.46153855323792,
+   "mca": 97.69181609153748
+  },
+  "scanobjectnn_test": {
+   "oa": 46.33228778839111,
+   "mca": 44.92095932364464
+  }
+ },
+ {
+  "condition": "c2_sim2real_no_pretrain",
+  "seed": 1,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 98.46153855323792,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 98.46153855323792,
+   "mca": 97.69181609153748
+  },
+  "scanobjectnn_test": {
+   "oa": 46.33228778839111,
+   "mca": 44.92095932364464
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 1,
+  "pretrained": "s0_rotz_results/best.pth",
+  "checkpoint_id": "s0_rotz_results__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.07692074775696,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.07692074775696,
+   "mca": 98.43713715672493
+  },
+  "scanobjectnn_test": {
+   "oa": 44.95297968387604,
+   "mca": 41.27996563911438
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 1,
+  "pretrained": "stage1_v2/runs/corrupt_aug/best.pth",
+  "checkpoint_id": "corrupt_aug__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.07692074775696,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.07692074775696,
+   "mca": 98.66794645786285
+  },
+  "scanobjectnn_test": {
+   "oa": 53.793102502822876,
+   "mca": 47.35782779753208
+  }
+ },
+ {
+  "condition": "c1_modelnet_baseline",
+  "seed": 2,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.38461780548096,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.38461780548096,
+   "mca": 98.72122779488564
+  },
+  "scanobjectnn_test": {
+   "oa": 48.7147331237793,
+   "mca": 45.99987305700779
+  }
+ },
+ {
+  "condition": "c2_sim2real_no_pretrain",
+  "seed": 2,
+  "pretrained": null,
+  "checkpoint_id": "none",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.38461780548096,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.38461780548096,
+   "mca": 98.72122779488564
+  },
+  "scanobjectnn_test": {
+   "oa": 48.7147331237793,
+   "mca": 45.99987305700779
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 2,
+  "pretrained": "s0_rotz_results/best.pth",
+  "checkpoint_id": "s0_rotz_results__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 99.07692074775696,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 99.07692074775696,
+   "mca": 98.66794645786285
+  },
+  "scanobjectnn_test": {
+   "oa": 49.278998374938965,
+   "mca": 42.350937658920884
+  }
+ },
+ {
+  "condition": "c3_sim2real_pretrained",
+  "seed": 2,
+  "pretrained": "stage1_v2/runs/corrupt_aug/best.pth",
+  "checkpoint_id": "corrupt_aug__best",
+  "finetune_encoder": true,
+  "select_metric": "mca",
+  "best_val_acc": 98.46153855323792,
+  "modelnet40_val_reused_as_eval": {
+   "oa": 98.46153855323792,
+   "mca": 97.19735831022263
+  },
+  "scanobjectnn_test": {
+   "oa": 49.65517222881317,
+   "mca": 45.208641700446606
+  }
+ }
+]

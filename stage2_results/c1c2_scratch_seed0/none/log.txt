@@ -1,0 +1,8 @@
+=== condition=c1c2_scratch seed=0 pretrained=None finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0522 | val_acc 94.8 (best 97.5)
+    ep  40/100 | train_loss 0.0111 | val_acc 97.8 (best 98.2)
+    ep  60/100 | train_loss 0.0034 | val_acc 96.9 (best 99.1)
+    ep  80/100 | train_loss 0.0006 | val_acc 98.2 (best 99.1)
+    ep 100/100 | train_loss 0.0003 | val_acc 98.2 (best 99.1)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.1 mca 98.5
+  ScanObjectNN test (sim-to-real): oa 53.1 mca 49.8

@@ -1,0 +1,8 @@
+=== condition=c3_sim2real_pretrained seed=0 pretrained=s0_rotz_results/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0342 | val_acc 97.2 (best 98.8)
+    ep  40/100 | train_loss 0.0003 | val_acc 98.5 (best 99.4)
+    ep  60/100 | train_loss 0.0001 | val_acc 99.1 (best 99.4)
+    ep  80/100 | train_loss 0.0001 | val_acc 98.5 (best 99.4)
+    ep 100/100 | train_loss 0.0003 | val_acc 98.5 (best 99.4)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.4 mca 98.7
+  ScanObjectNN test (sim-to-real): oa 49.3 mca 44.8

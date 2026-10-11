@@ -1,0 +1,17 @@
+{
+ "condition": "c3_sim2real_pretrained",
+ "seed": 0,
+ "pretrained": "stage1_v2/runs/corrupt_aug/best.pth",
+ "checkpoint_id": "corrupt_aug__best",
+ "finetune_encoder": true,
+ "select_metric": "mca",
+ "best_val_acc": 98.46153855323792,
+ "modelnet40_val_reused_as_eval": {
+  "oa": 98.46153855323792,
+  "mca": 97.09079340100288
+ },
+ "scanobjectnn_test": {
+  "oa": 49.278998374938965,
+  "mca": 43.7069246545434
+ }
+}

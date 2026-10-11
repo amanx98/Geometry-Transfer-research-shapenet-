@@ -1,0 +1,90 @@
+device: cuda
+ModelNet40 report says: [2048, 2048, 3], 40 classes
+ScanObjectNN report says: [581, 2048, 3], 15 classes
+!! This script does not yet have the real label->name mapping for either dataset wired in -- that needs whatever classes.txt / shape_names.txt ships alongside the .h5 files. Fill in `name_of_label` for each dataset below before this produces a trustworthy shared-class result. Until then this is a scaffold, not a run-it-and-trust-it script.
+loaded 5 file(s) from data/modelnet40_ply_hdf5_2048: 9840 shapes
+loaded 2 file(s) from data/scanobjectnn: 2890 shapes
+shared classes (8): ['bed', 'chair', 'desk', 'door', 'sink', 'sofa', 'table', 'toilet']
+=== condition=c1c2_scratch seed=0 pretrained=None finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0522 | val_acc 94.8 (best 97.5)
+    ep  40/100 | train_loss 0.0111 | val_acc 97.8 (best 98.2)
+    ep  60/100 | train_loss 0.0034 | val_acc 96.9 (best 99.1)
+    ep  80/100 | train_loss 0.0006 | val_acc 98.2 (best 99.1)
+    ep 100/100 | train_loss 0.0003 | val_acc 98.2 (best 99.1)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.1 mca 98.5
+  ScanObjectNN test (sim-to-real): oa 53.1 mca 49.8
+=== condition=c3_sim2real_pretrained seed=0 pretrained=s0_rotz_results/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0342 | val_acc 97.2 (best 98.8)
+    ep  40/100 | train_loss 0.0003 | val_acc 98.5 (best 99.4)
+    ep  60/100 | train_loss 0.0001 | val_acc 99.1 (best 99.4)
+    ep  80/100 | train_loss 0.0001 | val_acc 98.5 (best 99.4)
+    ep 100/100 | train_loss 0.0003 | val_acc 98.5 (best 99.4)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.4 mca 98.7
+  ScanObjectNN test (sim-to-real): oa 49.3 mca 44.8
+=== condition=c3_sim2real_pretrained seed=0 pretrained=stage1_v2/runs/corrupt_aug/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0493 | val_acc 95.4 (best 98.5)
+    ep  40/100 | train_loss 0.0056 | val_acc 97.5 (best 98.5)
+    ep  60/100 | train_loss 0.0004 | val_acc 98.2 (best 98.5)
+    ep  80/100 | train_loss 0.0002 | val_acc 97.8 (best 98.5)
+    ep 100/100 | train_loss 0.0002 | val_acc 97.8 (best 98.5)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 98.5 mca 97.1
+  ScanObjectNN test (sim-to-real): oa 49.3 mca 43.7
+=== condition=c1c2_scratch seed=1 pretrained=None finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0541 | val_acc 96.0 (best 97.5)
+    ep  40/100 | train_loss 0.0298 | val_acc 94.8 (best 98.5)
+    ep  60/100 | train_loss 0.0052 | val_acc 97.2 (best 98.5)
+    ep  80/100 | train_loss 0.0020 | val_acc 97.2 (best 98.5)
+    ep 100/100 | train_loss 0.0003 | val_acc 97.8 (best 98.5)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 98.5 mca 97.7
+  ScanObjectNN test (sim-to-real): oa 46.3 mca 44.9
+=== condition=c3_sim2real_pretrained seed=1 pretrained=s0_rotz_results/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0206 | val_acc 96.0 (best 98.8)
+    ep  40/100 | train_loss 0.0037 | val_acc 98.2 (best 99.1)
+    ep  60/100 | train_loss 0.0002 | val_acc 97.8 (best 99.1)
+    ep  80/100 | train_loss 0.0001 | val_acc 98.5 (best 99.1)
+    ep 100/100 | train_loss 0.0000 | val_acc 98.5 (best 99.1)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.1 mca 98.4
+  ScanObjectNN test (sim-to-real): oa 45.0 mca 41.3
+=== condition=c3_sim2real_pretrained seed=1 pretrained=stage1_v2/runs/corrupt_aug/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0281 | val_acc 97.5 (best 98.8)
+    ep  40/100 | train_loss 0.0145 | val_acc 97.2 (best 98.8)
+    ep  60/100 | train_loss 0.0010 | val_acc 97.5 (best 98.8)
+    ep  80/100 | train_loss 0.0000 | val_acc 98.8 (best 99.1)
+    ep 100/100 | train_loss 0.0000 | val_acc 99.1 (best 99.1)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.1 mca 98.7
+  ScanObjectNN test (sim-to-real): oa 53.8 mca 47.4
+=== condition=c1c2_scratch seed=2 pretrained=None finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0488 | val_acc 96.9 (best 97.5)
+    ep  40/100 | train_loss 0.0313 | val_acc 97.8 (best 99.4)
+    ep  60/100 | train_loss 0.0004 | val_acc 98.2 (best 99.4)
+    ep  80/100 | train_loss 0.0020 | val_acc 98.5 (best 99.4)
+    ep 100/100 | train_loss 0.0001 | val_acc 98.8 (best 99.4)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.4 mca 98.7
+  ScanObjectNN test (sim-to-real): oa 48.7 mca 46.0
+=== condition=c3_sim2real_pretrained seed=2 pretrained=s0_rotz_results/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0173 | val_acc 96.6 (best 98.8)
+    ep  40/100 | train_loss 0.0003 | val_acc 98.8 (best 98.8)
+    ep  60/100 | train_loss 0.0001 | val_acc 98.8 (best 99.1)
+    ep  80/100 | train_loss 0.0002 | val_acc 98.5 (best 99.1)
+    ep 100/100 | train_loss 0.0000 | val_acc 98.2 (best 99.1)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 99.1 mca 98.7
+  ScanObjectNN test (sim-to-real): oa 49.3 mca 42.4
+=== condition=c3_sim2real_pretrained seed=2 pretrained=stage1_v2/runs/corrupt_aug/best.pth finetune_encoder=True | encoder params 1.95M
+    ep  20/100 | train_loss 0.0400 | val_acc 97.2 (best 98.2)
+    ep  40/100 | train_loss 0.0090 | val_acc 97.8 (best 98.2)
+    ep  60/100 | train_loss 0.0002 | val_acc 97.8 (best 98.5)
+    ep  80/100 | train_loss 0.0000 | val_acc 97.8 (best 98.5)
+    ep 100/100 | train_loss 0.0000 | val_acc 97.8 (best 98.5)
+  ModelNet40 (val, reused -- NOT a held-out test): oa 98.5 mca 97.2
+  ScanObjectNN test (sim-to-real): oa 49.7 mca 45.2
+
+=== Stage 2 summary (mean class accuracy %, mean +/- std across seeds) ===
+NOTE: checkpoint selection used val OA (train_one); this table reports mCA -- a deliberate metric split per the review's point #, not an oversight, but the two can disagree even for the identical selected state.
+c1_modelnet_baseline            98.3 +/-  0.4  (n=3)
+c2_sim2real_no_pretrain         46.9 +/-  2.1  (n=3)
+c3_sim2real_pretrained[s0_rotz_results__best       ]  42.8 +/-  1.5  (n=3)
+c3_sim2real_pretrained[corrupt_aug__best           ]  45.4 +/-  1.5  (n=3)
+
+Primary result: condition-3 mca minus condition-2 mca (46.9), per checkpoint:
+  s0_rotz_results__best: -4.1 points
+  corrupt_aug__best: -1.5 points
